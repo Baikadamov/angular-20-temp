@@ -1,15 +1,24 @@
-/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
-/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": []
+    "types": [],
+    "baseUrl": "./",
+    "paths": {
+      "@app/*":          ["src/app/*"],
+      "@core/*":         ["src/app/core/*"],
+      "@models":         ["src/app/core/models/index.ts"],
+      "@models/*":       ["src/app/core/models/*"],
+      "@shared/*":       ["src/app/shared/*"],
+      "@features/*":     ["src/app/features/*"],
+      "@layout/*":       ["src/app/layout/*"],
+      "@utils":          ["src/app/utils/index.ts"],
+      "@utils/*":        ["src/app/utils/*"],
+      "@constants":      ["src/app/constants/index.ts"],
+      "@constants/*":    ["src/app/constants/*"],
+      "@environments/*": ["src/environments/*"]
+    }
   },
-  "include": [
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "src/**/*.spec.ts"
-  ]
+  "include": ["src/**/*.ts"],
+  "exclude": ["src/**/*.spec.ts"]
 }

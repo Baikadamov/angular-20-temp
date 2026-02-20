@@ -1,1 +1,97 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: light;
+}
+
+@theme {
+  /* --- Typography --- */
+  --font-family-sans: 'Inter', system-ui, sans-serif;
+
+  --font-size-2xs: 0.625rem;   /* 10px  micro / timestamps */
+  --font-size-xs:  0.75rem;    /* 12px  captions */
+  --font-size-sm:  0.875rem;   /* 14px  body */
+  --font-size-base:1rem;       /* 16px  section titles */
+  --font-size-lg:  1.125rem;   /* 18px  card titles */
+  --font-size-xl:  1.25rem;    /* 20px  page titles */
+  --font-size-2xl: 1.5rem;     /* 24px  large display */
+  --font-size-3xl: 1.875rem;   /* 30px  hero titles */
+
+  /* --- Brand colors (OKLch) --- */
+  --color-brand-50:  oklch(0.97 0.02 250);
+  --color-brand-100: oklch(0.94 0.04 250);
+  --color-brand-200: oklch(0.88 0.07 250);
+  --color-brand-300: oklch(0.80 0.10 250);
+  --color-brand-400: oklch(0.68 0.13 250);
+  --color-brand-500: oklch(0.55 0.15 250);
+  --color-brand-600: oklch(0.46 0.14 250);
+  --color-brand-700: oklch(0.38 0.12 250);
+  --color-brand-800: oklch(0.30 0.09 250);
+  --color-brand-900: oklch(0.23 0.06 250);
+  --color-brand-950: oklch(0.15 0.04 250);
+
+  /* --- Accent colors --- */
+  --color-accent-50:  oklch(0.97 0.02 145);
+  --color-accent-100: oklch(0.93 0.05 145);
+  --color-accent-200: oklch(0.87 0.09 145);
+  --color-accent-300: oklch(0.78 0.14 145);
+  --color-accent-400: oklch(0.70 0.18 145);
+  --color-accent-500: oklch(0.65 0.20 145);
+  --color-accent-600: oklch(0.55 0.18 145);
+  --color-accent-700: oklch(0.45 0.15 145);
+  --color-accent-800: oklch(0.36 0.11 145);
+  --color-accent-900: oklch(0.28 0.08 145);
+
+  /* --- Semantic colors --- */
+  --color-success: oklch(0.72 0.19 142);
+  --color-warning: oklch(0.80 0.18 85);
+  --color-error:   oklch(0.65 0.22 25);
+  --color-info:    oklch(0.70 0.15 230);
+
+  /* --- Border radius --- */
+  --radius-sm:   0.375rem;
+  --radius-md:   0.5rem;
+  --radius-lg:   0.75rem;
+  --radius-xl:   1rem;
+  --radius-2xl:  1.25rem;
+  --radius-3xl:  1.5rem;
+  --radius-full: 9999px;
+
+  /* --- Shadows --- */
+  --shadow-card:     0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-dropdown: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-modal:    0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+/* --- Typography utility classes --- */
+@layer utilities {
+  .text-page-title       { font-size: var(--font-size-xl);   font-weight: 700; }
+  .text-page-subtitle    { font-size: var(--font-size-sm);   color: theme(colors.gray.600); }
+  .text-card-title       { font-size: var(--font-size-lg);   font-weight: 600; }
+  .text-section-title    { font-size: var(--font-size-base); font-weight: 600; }
+  .text-subsection-title { font-size: var(--font-size-sm);   font-weight: 600; }
+  .text-body             { font-size: var(--font-size-sm); }
+  .text-body-muted       { font-size: var(--font-size-sm);   color: theme(colors.gray.600); }
+  .text-label            { font-size: var(--font-size-sm);   font-weight: 500; }
+  .text-caption          { font-size: var(--font-size-xs); }
+  .text-caption-muted    { font-size: var(--font-size-xs);   color: theme(colors.gray.400); }
+  .text-micro            { font-size: var(--font-size-2xs);  color: theme(colors.gray.400); }
+  .text-display          { font-size: var(--font-size-2xl);  font-weight: 700; }
+
+  .card-surface {
+    background-color: white;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
+  }
+}
+
+/* --- Animations --- */
+@keyframes slide-in-right {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+
+.animate-slide-in { animation: slide-in-right 0.3s ease-out; }
+
+/* --- Base --- */
+* { font-family: var(--font-family-sans); }
